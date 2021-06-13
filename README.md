@@ -1,1 +1,1 @@
-# 📱 Light React Native Template (Preview)
+# 📱 Team Spirit App

@@ -1,0 +1,42 @@
+{
+  "auth": {
+    "teamspirit1663b73f": {
+      "service": "Cognito",
+      "serviceType": "imported",
+      "providerPlugin": "awscloudformation",
+      "dependsOn": [],
+      "customAuth": true
+    }
+  },
+  "api": {
+    "teamspirit": {
+      "service": "AppSync",
+      "providerPlugin": "awscloudformation",
+      "output": {
+        "authConfig": {
+          "defaultAuthentication": {
+            "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+            "userPoolConfig": {
+              "userPoolId": "authteamspirit9dda18ec"
+            }
+          },
+          "additionalAuthenticationProviders": []
+        }
+      }
+    }
+  },
+  "notifications": {
+    "TeamSpiritNotification": {
+      "service": "Pinpoint",
+      "channels": [
+        "APNS"
+      ]
+    }
+  },
+  "analytics": {
+    "TeamSpiritNotification": {
+      "service": "Pinpoint",
+      "providerPlugin": "awscloudformation"
+    }
+  }
+}

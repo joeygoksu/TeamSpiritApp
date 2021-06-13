@@ -1,9 +1,22 @@
+import { Platform } from 'react-native';
+
+export const currentFont = (): string => {
+  let font = 'Montserrat-Regular';
+  if (Platform.OS === 'ios') {
+    font = 'Montserrat';
+  }
+  return font;
+};
+
 export const Color = {
   darkBlue: '#00072E',
   white: '#ffffff',
+  mustard: '#FFBD12',
+  tomato: '#F95A2C',
 };
 
 export const Theme = {
+  colors: Color,
   Shadow: {
     shadowColor: '#000',
     shadowOffset: {

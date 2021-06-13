@@ -1,9 +1,10 @@
+import { useNavigation } from '@react-navigation/native';
 import { Layout, Text } from '@ui-kitten/components';
 import * as React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import NextButton from '../../assets/button/button.png';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import NextButton from '../../assets/button/button.png';
+import { currentFont } from '../../theme';
 
 interface OnboardingProps {}
 
@@ -18,18 +19,20 @@ export const OnboardingScreen = (props: OnboardingProps) => {
           <View style={styles.ball} />
           <View style={styles.textContent}>
             <Text style={styles.text} category="h1">
-              The
+              Anonymous
             </Text>
             <Text style={styles.text} category="h1">
-              Template
+              Feedback
             </Text>
             <Text
               style={{
                 ...styles.text,
                 fontSize: 24,
               }}
-              category="p1">
-              Designed for lazy devs.
+              category="p1"
+            >
+              Automatically delivers anonymous feedback on your colleagues, based on a
+              simple and straight-forward Happy/Neutral/Bad feedback model.
             </Text>
           </View>
         </Layout>
@@ -46,7 +49,8 @@ export const OnboardingScreen = (props: OnboardingProps) => {
           <TouchableOpacity
             onPress={() => {
               navigation.navigate('Onboarding2');
-            }}>
+            }}
+          >
             <Image source={NextButton} width={50} height={50} />
           </TouchableOpacity>
         </Layout>
@@ -75,7 +79,7 @@ const styles = StyleSheet.create({
   },
   text: {
     margin: 2,
-    fontFamily: 'Montserrat',
+    fontFamily: currentFont(),
   },
   textContent: {
     alignItems: 'flex-start',

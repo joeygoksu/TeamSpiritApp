@@ -1,10 +1,11 @@
 import { Layout, Text } from '@ui-kitten/components';
 import * as React from 'react';
 import { View, StyleSheet, TouchableOpacity } from 'react-native';
+import { useDispatch } from 'react-redux';
 import pJson from '../../../package.json';
 
-import { useDispatch } from 'react-redux';
 import { changeOnboard } from '../../store/actions';
+import { currentFont } from '../../theme';
 
 interface GetStartedProps {}
 
@@ -19,19 +20,23 @@ export const GetStartedScreen = (props: GetStartedProps) => {
           <View style={styles.ball} />
           <View style={styles.textContent}>
             <Text style={styles.text} category="s1">
-              Easy to develop
+              A new way of feedback
             </Text>
-
             <Text style={styles.text} category="h1">
-              Template Version: {pJson.version}
+              Understand
+            </Text>
+            <Text style={styles.text} category="h1">
+              Your Team
             </Text>
             <Text
               style={{
                 ...styles.text,
                 fontSize: 24,
               }}
-              category="p1">
-              RN Version: {pJson.dependencies['react-native']}
+              category="p1"
+            >
+              The goal of the app is to reduce the unclear communication when true
+              anonymous feedback can be given.
             </Text>
           </View>
         </Layout>
@@ -47,7 +52,8 @@ export const GetStartedScreen = (props: GetStartedProps) => {
                 hasOnboarded: true,
               }),
             );
-          }}>
+          }}
+        >
           <Text style={styles.getStartedText}>Get Started</Text>
         </TouchableOpacity>
       </Layout>
@@ -70,7 +76,7 @@ const styles = StyleSheet.create({
   },
   text: {
     margin: 2,
-    fontFamily: 'Montserrat',
+    fontFamily: currentFont(),
   },
   textContent: {
     alignItems: 'flex-start',
@@ -92,7 +98,7 @@ const styles = StyleSheet.create({
   },
   getStartedText: {
     margin: 2,
-    fontFamily: 'Montserrat',
+    fontFamily: currentFont(),
     color: '#ffffff',
     fontSize: 24,
     fontWeight: 'bold',

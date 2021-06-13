@@ -1,6 +1,6 @@
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import { createStore, compose, applyMiddleware } from 'redux';
 import { persistStore, persistReducer } from 'redux-persist';
-import AsyncStorage from '@react-native-async-storage/async-storage';
 import createSagaMiddleware from 'redux-saga';
 import mySaga from './sagas';
 
@@ -13,15 +13,14 @@ declare global {
 }
 
 const composeEnhancers =
-  (typeof window !== 'undefined' &&
-    window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
+  (typeof window !== 'undefined' && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) ||
   compose;
 
 // create the saga middleware
 const sagaMiddleware = createSagaMiddleware();
 
 const enhancer = composeEnhancers(
-  applyMiddleware(sagaMiddleware /*other middleware*/),
+  applyMiddleware(sagaMiddleware /* other middleware */),
   /* other store enhancers if any */
 );
 
@@ -35,7 +34,7 @@ const persistConfig = {
   // Storage Method (React Native)
   storage: AsyncStorage,
   // Whitelist (Save Specific Reducers)
-  whitelist: ['auth', 'onboard'],
+  whitelist: ['auth', 'onboard', 'team'],
   // Blacklist (Don't Save Specific Reducers)
   blacklist: [],
 };

@@ -1,5 +1,4 @@
-import React, { ReactNode } from 'react';
-import { StyleSheet, View } from 'react-native';
+import { useNavigation } from '@react-navigation/native';
 import {
   Icon,
   MenuItem,
@@ -7,29 +6,28 @@ import {
   Text,
   TopNavigationAction,
 } from '@ui-kitten/components';
-import { useNavigation } from '@react-navigation/native';
+import React, { ReactNode, useState } from 'react';
+import { StyleSheet, View } from 'react-native';
 import { shallowEqual, useDispatch, useSelector } from 'react-redux';
+import { currentFont, Theme } from '../theme';
 
 const BackIcon = (props: any) => <Icon {...props} name="arrow-back" />;
 
-const AlertIcon = (props: any) => (
-  <Icon {...props} name="alert-circle-outline" />
-);
+const AlertIcon = (props: any) => <Icon {...props} name="alert-circle-outline" />;
 
 const LogoutIcon = (props: any) => <Icon {...props} name="log-out" />;
 
 interface CustomTopNavigationProps {
   leftComponent?: ReactNode;
   backButton?: boolean;
+  title?: string;
 }
 
-export const CustomTopNavigation = ({
-  backButton,
-}: CustomTopNavigationProps) => {
+export const CustomTopNavigation = ({ title }: CustomTopNavigationProps) => {
   const navigation = useNavigation();
   const dispatch = useDispatch();
 
-  const [menuVisible, setMenuVisible] = React.useState(false);
+  const [menuVisible, setMenuVisible] = useState(false);
 
   const toggleMenu = () => {
     setMenuVisible(!menuVisible);
@@ -45,25 +43,20 @@ export const CustomTopNavigation = ({
 
   return (
     <View style={styles.container}>
-      <View style={styles.backContainer}>
-        {backButton && renderBackAction()}
-      </View>
+      <View style={styles.backContainer}>{renderBackAction()}</View>
 
       <View style={styles.titleContainer}>
-        <Text style={styles.title}>Title</Text>
+        <Text style={styles.title}>{title || 'Title'}</Text>
       </View>
 
       <View style={{ ...styles.avatar, ...styles.avatarContainer }}>
-        <OverflowMenu
+        {/* <OverflowMenu
           anchor={renderMenuAction}
           visible={menuVisible}
-          onBackdropPress={toggleMenu}>
-          <MenuItem
-            accessoryLeft={LogoutIcon}
-            title="Quit"
-            onPress={() => {}}
-          />
-        </OverflowMenu>
+          onBackdropPress={toggleMenu}
+        >
+          <MenuItem accessoryLeft={LogoutIcon} title="Quit" onPress={() => {}} />
+        </OverflowMenu> */}
       </View>
     </View>
   );
@@ -82,7 +75,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   title: {
-    fontFamily: 'Montserrat',
+    fontFamily: currentFont(),
     fontWeight: 'bold',
   },
   avatarContainer: {
@@ -90,15 +83,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   avatar: {
-    shadowColor: '#000',
-    shadowOffset: {
-      width: 0,
-      height: 3,
-    },
-    shadowOpacity: 0.34,
-    shadowRadius: 6.27,
-
-    elevation: 10,
+    ...Theme.Shadow,
   },
   backContainer: {
     width: 100,

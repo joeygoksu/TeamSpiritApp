@@ -1,0 +1,39 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-teamspirit-dev-00716-authRole",
+      "UnauthRoleArn": "arn:aws:iam::043964854906:role/amplify-teamspirit-dev-00716-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::043964854906:role/amplify-teamspirit-dev-00716-authRole",
+      "Region": "eu-west-2",
+      "DeploymentBucketName": "amplify-teamspirit-dev-00716-deployment",
+      "UnauthRoleName": "amplify-teamspirit-dev-00716-unauthRole",
+      "StackName": "amplify-teamspirit-dev-00716",
+      "StackId": "arn:aws:cloudformation:eu-west-2:043964854906:stack/amplify-teamspirit-dev-00716/fcaafec0-5907-11eb-9ab0-0aa2a17b5748",
+      "AmplifyAppId": "d2r9vyopz2tp9g"
+    },
+    "categories": {
+      "notifications": {
+        "Pinpoint": {
+          "Name": "TeamSpiritNotification-dev",
+          "Id": "2e6c83e75fd44c3c95672db327166b82",
+          "Region": "eu-west-1"
+        }
+      },
+      "auth": {
+        "teamspirit1663b73f": {
+          "userPoolId": "eu-west-2_fS76NSbDE",
+          "userPoolName": "TeamSpirit-dev",
+          "webClientId": "44i7ouhgq0h4eviojomhi2lmtj",
+          "nativeClientId": "3oojtluhng9kpiftucr9hrtee",
+          "identityPoolId": "eu-west-2:986f1951-2d02-4a13-838c-0677d2d9c4c4",
+          "identityPoolName": "TeamSpirit",
+          "allowUnauthenticatedIdentities": true,
+          "authRoleArn": "arn:aws:iam::043964854906:role/Cognito_TeamSpiritAuth_Role",
+          "authRoleName": "Cognito_TeamSpiritAuth_Role",
+          "unauthRoleArn": "arn:aws:iam::043964854906:role/Cognito_TeamSpiritUnauth_Role",
+          "unauthRoleName": "Cognito_TeamSpiritUnauth_Role"
+        }
+      }
+    }
+  }
+}

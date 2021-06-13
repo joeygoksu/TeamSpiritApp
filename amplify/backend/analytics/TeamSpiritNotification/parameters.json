@@ -1,0 +1,22 @@
+{
+    "appName": "TeamSpiritNotification",
+    "roleName": "pinpointLambdaRole44245c67",
+    "cloudformationPolicyName": "cloudformationPolicy44245c67",
+    "cloudWatchPolicyName": "cloudWatchPolicy44245c67",
+    "pinpointPolicyName": "pinpointPolicy44245c67",
+    "authPolicyName": "pinpoint_amplify_44245c67",
+    "unauthPolicyName": "pinpoint_amplify_44245c67",
+    "authRoleName": {
+        "Ref": "AuthRoleName"
+    },
+    "unauthRoleName": {
+        "Ref": "UnauthRoleName"
+    },
+    "authRoleArn": {
+        "Fn::GetAtt": [
+            "AuthRole",
+            "Arn"
+        ]
+    },
+    "appId": "2e6c83e75fd44c3c95672db327166b82"
+}

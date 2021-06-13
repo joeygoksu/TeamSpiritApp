@@ -1,9 +1,10 @@
+import { useNavigation } from '@react-navigation/native';
 import { Layout, Text } from '@ui-kitten/components';
 import * as React from 'react';
 import { View, StyleSheet, Image } from 'react-native';
-import NextButton from '../../assets/button/button.png';
 import { TouchableOpacity } from 'react-native-gesture-handler';
-import { useNavigation } from '@react-navigation/native';
+import NextButton from '../../assets/button/button.png';
+import { currentFont } from '../../theme';
 
 interface Onboarding2Props {}
 
@@ -19,15 +20,17 @@ export const Onboarding2Screen = (props: Onboarding2Props) => {
             <View style={styles.ball} />
             <View style={styles.textContent}>
               <Text style={styles.text} category="h1">
-                UI-ready
+                Insight
               </Text>
               <Text
                 style={{
                   ...styles.text,
                   fontSize: 24,
                 }}
-                category="p1">
-                Dark-Light mode support
+                category="p1"
+              >
+                TeamSpirit makes it easy to gather honest and anonymous feedback from your
+                team — because great teams start with insight.
               </Text>
             </View>
           </Layout>
@@ -71,7 +74,7 @@ const styles = StyleSheet.create({
   },
   text: {
     margin: 2,
-    fontFamily: 'Montserrat',
+    fontFamily: currentFont(),
   },
   textContent: {
     alignItems: 'flex-start',

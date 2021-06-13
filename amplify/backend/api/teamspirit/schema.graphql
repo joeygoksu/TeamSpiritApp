@@ -1,0 +1,51 @@
+# EXAMPLE
+# type Task
+#   @model
+#   @auth(
+#     rules: [
+#       {
+#         allow: groups
+#         groups: ["Managers"]
+#         queries: null
+#         mutations: [create, update, delete]
+#       }
+#       {
+#         allow: groups
+#         groups: ["Employees"]
+#         queries: [get, list]
+#         mutations: null
+#       }
+#     ]
+#   ) {
+#   id: ID!
+#   title: String!
+#   description: String
+#   status: String
+# }
+
+# type PrivateNote @model @auth(rules: [{ allow: owner }]) {
+#   id: ID!
+#   content: String!
+# }
+
+type Team @model {
+  id: ID!
+  name: String!
+  members: [String]
+  board: Board @connection(name: "TeamBoard")
+  prevNode: String
+  nextNode: String
+}
+
+type Board @model {
+  id: ID!
+  name: String
+  team: Team @connection(name: "TeamBoard")
+  scores: [Score] @connection(name: "BoardScores")
+}
+
+type Score @model @auth(rules: [{ allow: owner, mutations: [create] }]) {
+  user_id: AWSEmail!
+  score: Float!
+  board: Board! @connection(name: "BoardScores")
+}
